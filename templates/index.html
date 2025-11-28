@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smit Patil | Personal Portfolio</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font -->
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .modal-overlay {
+            transition: opacity 0.3s ease;
+        }
+        .modal-content {
+            transition: all 0.3s ease;
+        }
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid #3B82F6;
+            width: 2rem;
+            height: 2rem;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-900 bg-opacity-90 backdrop-blur-md sticky top-0 z-50">
+        <nav class="container mx-auto max-w-6xl px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white">Smit Patil</a>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+
+            <!-- Navigation Links -->
+            <div id="mobile-menu" class="hidden md:flex md:items-center space-x-6">
+                <ul class="flex flex-col md:flex-row md:space-x-6 space-y-2 md:space-y-0 mt-4 md:mt-0">
+                    <li><a href="#about" class="block py-2 md:py-0 text-gray-300 hover:text-white transition-colors">About</a></li>
+                    <li><a href="#projects" class="block py-2 md:py-0 text-gray-300 hover:text-white transition-colors">Projects</a></li>
+                    <li><a href="#skills" class="block py-2 md:py-0 text-gray-300 hover:text-white transition-colors">Skills</a></li>
+                    <li><a href="#contact" class="block py-2 md:py-0 bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-lg transition-colors">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto max-w-6xl px-6 py-12">
+
+        <!-- Hero Section -->
+        <section id="hero" class="text-center min-h-[60vh] flex flex-col items-center justify-center">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-4">
+                Hi, I'm <span class="text-blue-400">Smit Patil</span>
+            </h1>
+            <p class="text-2xl md:text-3xl text-gray-300 mb-4">
+                I'm an AI Software Engineer & AIML Student
+            </p>
+            <p class="text-lg text-gray-400 max-w-2xl mb-8">
+                I love building AI-powered, user-friendly web applications and exploring how machine learning can solve real-world problems—whether it's intelligent assistants, smart automation, or predictive systems.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#projects" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-lg text-lg transition-colors">
+                    View My Work
+                </a>
+                <a href="/static/Smit_Patil_Resume.pdf" download class="border border-blue-400 text-blue-400 hover:bg-blue-600 hover:text-white font-bold px-8 py-3 rounded-lg text-lg transition-colors">
+                    Download Resume
+                </a>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-20">
+            <div class="flex justify-center items-center gap-4 mb-12">
+                <h2 class="text-4xl font-bold text-center">About Me</h2>
+                <button id="openBioModal" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-lg transition-colors flex items-center gap-2">
+                    ✨ Generate
+                </button>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/3">
+                    <img src="https://placehold.co/400x400/374151/9CA3AF?text=Smit+Patil" alt="Smit Patil photo placeholder" class="w-full max-w-sm mx-auto h-auto rounded-full shadow-xl">
+                </div>
+                <div class="md:w-2/3">
+                    <h3 class="text-2xl font-semibold mb-4">A bit about my journey...</h3>
+                    <p id="about-me-content" class="text-gray-300 text-lg mb-4">
+                        Hello! I'm Smit, an AI software engineer and AIML student from India. I enjoy turning complex ideas into clean, working applications that feel simple and intuitive for users.
+                    </p>
+                    <p class="text-gray-300 text-lg mb-4">
+                        My interests span across machine learning, generative AI, and full-stack development with Python, JavaScript, and React. Outside of coding, you'll often find me trading Bank NIFTY, or enjoying long drives on my bike or in the car.
+                    </p>
+                    <p class="text-gray-300 text-lg">
+                        I'm currently looking for opportunities to work on impactful AI projects, collaborate with great teams, and keep leveling up my skills in real-world products.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20">
+            <div class="flex justify-center items-center gap-4 mb-12">
+                <h2 class="text-4xl font-bold text-center">My Projects</h2>
+                <button id="openProjectModal" class="bg-green-600 hover:bg-green-700 text-white font-bold px-4 py-2 rounded-lg transition-colors flex items-center gap-2">
+                    ✨ Suggest New Project
+                </button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project Card 1 -->
+                <div class="bg-gray-800 rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/1F2937/4B5563?text=Project+1" alt="Project 1 Screenshot" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Project Title 1</h3>
+                        <p class="text-gray-400 mb-4">
+                            A brief description of the project, what it does, and the problem it solves.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-900 text-blue-300 text-xs font-semibold px-3 py-1 rounded-full">React</span>
+                            <span class="bg-green-900 text-green-300 text-xs font-semibold px-3 py-1 rounded-full">Node.js</span>
+                            <span class="bg-gray-700 text-gray-300 text-xs font-semibold px-3 py-1 rounded-full">Tailwind</span>
+                        </div>
+                        <a href="#" class="text-blue-400 hover:text-blue-300 font-semibold">View Project &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="bg-gray-800 rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/1F2937/4B5563?text=Project+2" alt="Project 2 Screenshot" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Project Title 2</h3>
+                        <p class="text-gray-400 mb-4">
+                            Another project with a concise description. Keep it short and engaging.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-yellow-900 text-yellow-300 text-xs font-semibold px-3 py-1 rounded-full">JavaScript</span>
+                            <span class="bg-purple-900 text-purple-300 text-xs font-semibold px-3 py-1 rounded-full">Firebase</span>
+                        </div>
+                        <a href="#" class="text-blue-400 hover:text-blue-300 font-semibold">View Project &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="bg-gray-800 rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/1F2937/4B5563?text=Project+3" alt="Project 3 Screenshot" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Project Title 3</h3>
+                        <p class="text-gray-400 mb-4">
+                            This one might be a design project, or a backend-heavy application.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-red-900 text-red-300 text-xs font-semibold px-3 py-1 rounded-full">Angular</span>
+                            <span class="bg-pink-900 text-pink-300 text-xs font-semibold px-3 py-1 rounded-full">Figma</span>
+                        </div>
+                        <a href="#" class="text-blue-400 hover:text-blue-300 font-semibold">View Project &rarr;</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20">
+            <h2 class="text-4xl font-bold text-center mb-12">My Skills</h2>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">Python</span>
+                <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">Machine Learning</span>
+                <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">Deep Learning</span>
+                <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">JavaScript (ES6+)</span>
+                <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">React</span>
+                <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">Node.js</span>
+                <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">Tailwind CSS</span>
+                <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">Git & GitHub</span>
+                <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">Figma</span>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 text-center">
+            <h2 class="text-4xl font-bold mb-6">Get In Touch</h2>
+            <p class="text-lg text-gray-300 max-w-xl mx-auto mb-8">
+                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your team. Feel free to reach out!
+            </p>
+            <a href="mailto:your.email@example.com" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-lg text-lg transition-colors">
+                Say Hello
+            </a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-center p-6">
+        <p class="text-gray-500">
+            &copy; 2024 Smit Patil. All rights reserved.
+        </p>
+    </footer>
+
+    <!-- ===== MODALS ===== -->
+
+    <!-- "About Me" Generator Modal -->
+    <div id="bioModal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75 backdrop-blur-sm hidden opacity-0">
+        <div class="modal-content bg-gray-800 w-full max-w-lg rounded-2xl shadow-xl p-6 relative opacity-0 scale-95">
+            <button id="closeBioModal" class="absolute top-4 right-4 text-gray-400 hover:text-white">&times;</button>
+            <h3 class="text-2xl font-bold mb-4 text-white">✨ AI Bio Generator</h3>
+            <p class="text-gray-400 mb-4">Enter some keywords, and let AI draft a professional bio for you.</p>
+            
+            <label for="bioKeywords" class="block text-sm font-medium text-gray-300 mb-2">Your Keywords:</label>
+            <textarea id="bioKeywords" rows="3" class="w-full p-2 rounded-lg bg-gray-700 text-white placeholder-gray-400" placeholder="e.g., AI Software Engineer, Python, PyTorch, building user-friendly apps, love driving"></textarea>
+            
+            <button id="generateBioBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-lg transition-colors mt-4 flex items-center justify-center gap-2">
+                Generate Bio
+            </button>
+
+            <div id="bioLoading" class="hidden my-4 flex justify-center">
+                <div class="spinner"></div>
+            </div>
+
+            <div id="bioResultContainer" class="hidden mt-4">
+                <label for="bioResult" class="block text-sm font-medium text-gray-300 mb-2">Generated Bio:</label>
+                <textarea id="bioResult" rows="6" class="w-full p-2 rounded-lg bg-gray-700 text-white" readonly></textarea>
+                <button id="copyBioBtn" class="bg-gray-600 hover:bg-gray-500 text-white font-bold px-4 py-2 rounded-lg transition-colors mt-2">
+                    Copy to Clipboard
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- "Project Idea" Generator Modal -->
+    <div id="projectModal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75 backdrop-blur-sm hidden opacity-0">
+        <div class="modal-content bg-gray-800 w-full max-w-lg rounded-2xl shadow-xl p-6 relative opacity-0 scale-95">
+            <button id="closeProjectModal" class="absolute top-4 right-4 text-gray-400 hover:text-white">&times;</button>
+            <h3 class="text-2xl font-bold mb-4 text-white">✨ AI Project Idea Generator</h3>
+            <p class="text-gray-400 mb-4">Get a new project idea tailored to your role.</p>
+            
+            <label for="projectRole" class="block text-sm font-medium text-gray-300 mb-2">Your Role:</label>
+            <input type="text" id="projectRole" class="w-full p-2 rounded-lg bg-gray-700 text-white" value="AI Software Engineer">
+            
+            <button id="generateProjectBtn" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold px-4 py-2 rounded-lg transition-colors mt-4 flex items-center justify-center gap-2">
+                Generate Project Idea
+            </button>
+
+            <div id="projectLoading" class="hidden my-4 flex justify-center">
+                <div class="spinner"></div>
+            </div>
+
+            <div id="projectResult" class="mt-4 p-4 rounded-lg bg-gray-700 text-white hidden">
+                <!-- AI-generated content will go here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SCRIPT ===== -->
+    <script type="module">
+        // Mobile Menu Toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        const navLinks = mobileMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Modal utility functions
+        function openModal(modal) {
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.querySelector('.modal-content').classList.remove('opacity-0', 'scale-95');
+            }, 10);
+        }
+
+        function closeModal(modal) {
+            modal.classList.add('opacity-0');
+            modal.querySelector('.modal-content').classList.add('opacity-0', 'scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // --- Bio Modal ---
+        const bioModal = document.getElementById('bioModal');
+        const openBioModalBtn = document.getElementById('openBioModal');
+        const closeBioModalBtn = document.getElementById('closeBioModal');
+        const generateBioBtn = document.getElementById('generateBioBtn');
+        const bioLoading = document.getElementById('bioLoading');
+        const bioResultContainer = document.getElementById('bioResultContainer');
+        const bioResult = document.getElementById('bioResult');
+        const copyBioBtn = document.getElementById('copyBioBtn');
+
+        openBioModalBtn.addEventListener('click', () => openModal(bioModal));
+        closeBioModalBtn.addEventListener('click', () => closeModal(bioModal));
+
+        copyBioBtn.addEventListener('click', () => {
+            bioResult.select();
+            document.execCommand('copy');
+            copyBioBtn.textContent = 'Copied!';
+            setTimeout(() => { copyBioBtn.textContent = 'Copy to Clipboard'; }, 2000);
+        });
+
+        // --- Project Modal ---
+        const projectModal = document.getElementById('projectModal');
+        const openProjectModalBtn = document.getElementById('openProjectModal');
+        const closeProjectModalBtn = document.getElementById('closeProjectModal');
+        const generateProjectBtn = document.getElementById('generateProjectBtn');
+        const projectLoading = document.getElementById('projectLoading');
+        const projectResult = document.getElementById('projectResult');
+
+        openProjectModalBtn.addEventListener('click', () => openModal(projectModal));
+        closeProjectModalBtn.addEventListener('click', () => closeModal(projectModal));
+
+        async function postJson(url, body) {
+            const res = await fetch(url, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(body),
+            });
+
+            if (!res.ok) {
+                const text = await res.text();
+                throw new Error(`HTTP ${res.status}: ${text}`);
+            }
+            return res.json();
+        }
+
+        // Handle "Generate Bio"
+        async function handleGenerateBio() {
+            const keywords = document.getElementById('bioKeywords').value.trim();
+            if (!keywords) {
+                alert("Please enter some keywords first.");
+                return;
+            }
+
+            generateBioBtn.disabled = true;
+            generateBioBtn.innerHTML = 'Generating...';
+            bioLoading.classList.remove('hidden');
+            bioResultContainer.classList.add('hidden');
+
+            try {
+                const data = await postJson("/api/bio", { keywords });
+                bioResult.value = data.text || data.error || "Unknown error.";
+            } catch (err) {
+                console.error(err);
+                bioResult.value = "Error generating bio. Check the console and backend logs.";
+            } finally {
+                generateBioBtn.disabled = false;
+                generateBioBtn.innerHTML = 'Generate Bio';
+                bioLoading.classList.add('hidden');
+                bioResultContainer.classList.remove('hidden');
+            }
+        }
+
+        generateBioBtn.addEventListener('click', handleGenerateBio);
+
+        // Handle "Generate Project Idea"
+        async function handleGenerateProject() {
+            const roleInput = document.getElementById('projectRole');
+            const role = roleInput.value.trim() || "AI Software Engineer";
+
+            generateProjectBtn.disabled = true;
+            generateProjectBtn.innerHTML = 'Generating...';
+            projectLoading.classList.remove('hidden');
+            projectResult.classList.add('hidden');
+
+            try {
+                const data = await postJson("/api/project", { role });
+                projectResult.innerHTML = data.html || data.error || "Unknown error.";
+            } catch (err) {
+                console.error(err);
+                projectResult.innerHTML = "<p>Error generating project idea. Check the console and backend logs.</p>";
+            } finally {
+                generateProjectBtn.disabled = false;
+                generateProjectBtn.innerHTML = 'Generate Project Idea';
+                projectLoading.classList.add('hidden');
+                projectResult.classList.remove('hidden');
+            }
+        }
+
+        generateProjectBtn.addEventListener('click', handleGenerateProject);
+    </script>
+
+</body>
+</html>
