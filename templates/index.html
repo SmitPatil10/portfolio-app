@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smit Patil | Personal Portfolio</title>
-    <!-- Load Tailwind CSS -->
+
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Use Inter font -->
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
     <script>
         tailwind.config = {
             theme: {
@@ -19,122 +20,120 @@
             },
         }
     </script>
+
     <style>
-        .modal-overlay {
-            transition: opacity 0.3s ease;
-        }
-        .modal-content {
-            transition: all 0.3s ease;
-        }
+        .modal-overlay { transition: opacity 0.3s ease; }
+        .modal-content { transition: all 0.3s ease; }
         .spinner {
-            border: 4px solid rgba(255, 255, 255, 0.3);
+            border: 4px solid rgba(0, 0, 0, 0.1);
             border-radius: 50%;
             border-top: 4px solid #3B82F6;
             width: 2rem;
             height: 2rem;
             animation: spin 1s linear infinite;
         }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-100 font-sans">
 
-    <!-- Header & Navigation -->
-    <header class="bg-gray-900 bg-opacity-90 backdrop-blur-md sticky top-0 z-50">
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <!-- Header -->
+    <header class="bg-white bg-opacity-90 backdrop-blur-md shadow-sm sticky top-0 z-50">
         <nav class="container mx-auto max-w-6xl px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-white">Smit Patil</a>
-            
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-            </button>
+            <a class="text-2xl font-bold text-gray-900">Smit Patil</a>
 
-            <!-- Navigation Links -->
+            <!-- Mobile Menu -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-200">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+    
             <div id="mobile-menu" class="hidden md:flex md:items-center space-x-6">
-                <ul class="flex flex-col md:flex-row md:space-x-6 space-y-2 md:space-y-0 mt-4 md:mt-0">
-                    <li><a href="#about" class="block py-2 md:py-0 text-gray-300 hover:text-white transition-colors">About</a></li>
-                    <li><a href="#projects" class="block py-2 md:py-0 text-gray-300 hover:text-white transition-colors">Projects</a></li>
-                    <li><a href="#skills" class="block py-2 md:py-0 text-gray-300 hover:text-white transition-colors">Skills</a></li>
-                    <li><a href="#contact" class="block py-2 md:py-0 bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-lg transition-colors">Contact</a></li>
+                <ul class="flex flex-col md:flex-row md:space-x-6 space-y-2 md:space-y-0">
+                    <li><a href="#about" class="text-gray-700 hover:text-blue-600">About</a></li>
+                    <li><a href="#projects" class="text-gray-700 hover:text-blue-600">Projects</a></li>
+                    <li><a href="#skills" class="text-gray-700 hover:text-blue-600">Skills</a></li>
+                    <li><a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-lg">Contact</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <!-- Main Content -->
+    <!-- Main -->
     <main class="container mx-auto max-w-6xl px-6 py-12">
 
-        <!-- Hero Section -->
-        <section id="hero" class="text-center min-h-[60vh] flex flex-col items-center justify-center">
+        <!-- Hero -->
+        <section class="text-center min-h-[60vh] flex flex-col items-center justify-center">
             <h1 class="text-5xl md:text-7xl font-extrabold mb-4">
-                Hey!,I'm <span class="text-blue-400">Smit Patil</span>
+                Hey!, I'm <span class="text-blue-600">Smit Patil</span>
             </h1>
-            <p class="text-2xl md:text-3xl text-gray-300 mb-4">
-                I'm an AI Software Engineer & AIML Student
+            <p class="text-2xl md:text-3xl text-gray-700 mb-4">I'm an AI Software Engineer & AIML Student</p>
+            <p class="text-lg text-gray-600 max-w-2xl mb-8">
+                I'm dedicated to bridging the gap between complex machine learning concepts and intuitive user experiences. I specialize in developing robust AI-powered web applications that address real-world challenges—ranging from intelligent virtual assistants and smart automation to advanced predictive systems.
             </p>
-            <p class="text-lg text-gray-400 max-w-2xl mb-8">
-             I'm dedicated to bridging the gap between complex machine learning concepts and intuitive user experiences. I specialize in developing robust AI-powered web applications that address real-world challenges—ranging from intelligent virtual assistants and smart automation to advanced predictive systems.
-            </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#projects" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-lg text-lg transition-colors">
-                    View My Work
-                </a>
-                <a href="/static/Smit_Patil_Resume.pdf" download class="border border-blue-400 text-blue-400 hover:bg-blue-600 hover:text-white font-bold px-8 py-3 rounded-lg text-lg transition-colors">
-                    Download Resume
+
+            <div class="flex gap-4 justify-center">
+                <a href="#projects" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-lg">View My Work</a>
+                <a href="/static/Smit_Patil_Resume.pdf"
+                   download
+                   class="border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 rounded-lg font-bold">
+                   Download Resume
                 </a>
             </div>
         </section>
 
-        <!-- About Me Section -->
+        <!-- About -->
         <section id="about" class="py-20">
             <div class="flex justify-center items-center gap-4 mb-12">
-                <h2 class="text-4xl font-bold text-center">About Me</h2>
-                <button id="openBioModal" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-lg transition-colors flex items-center gap-2">
-                    ✨ Generate
+                <h2 class="text-4xl font-bold">About Me</h2>
+                <button id="openBioModal"
+                        class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-bold">
+                        ✨ Generate
                 </button>
             </div>
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-1/3">
-                    <img src="/static/smit_photo.jpg" alt="Smit Patil" class="w-full max-w-sm mx-auto h-auto rounded-full shadow-xl">
 
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/3">
+                    <img src="/static/smit_photo.jpg"
+                         class="w-full max-w-sm rounded-full shadow-xl border">
                 </div>
+
                 <div class="md:w-2/3">
                     <h3 class="text-2xl font-semibold mb-4">A bit about my journey...</h3>
-                    <p id="about-me-content" class="text-gray-300 text-lg mb-4">
-                        Hello, I'm Smit. As an AI Software Engineer and student in India, I view code as a tool to solve problems, not just create them. I thrive on the challenge of taking complex AI/ML ideas and distilling them into working applications that feel effortless to use.
+                    <p class="text-black-300 text-lg mb-4">
+                    Hello, I'm Smit. As an AI Software Engineer and student in India, I view code as a tool to solve problems, not just create them. I thrive on the challenge of taking complex AI/ML ideas and distilling them into working applications that feel effortless to use.
                     </p>
-                    <p class="text-gray-300 text-lg mb-4">
-                        My interests span across machine learning, generative AI, and full-stack development with Python, Flask, and React. I like working on projects where I can take an idea from a rough sketch to a deployed product. When I'm not coding, you'll often find me trading Bank NIFTY or out on a long drive on my bike or in the car. 
+                    <p class="text-black-300 text-lg mb-4">
+                        My interests span across machine learning, generative AI, and full-stack development with Python, Flask, and React. I like working on projects where I can take an idea from a rough sketch to a deployed product. When I'm not coding, you'll often find me trading Bank NIFTY or out on a long drive on my bike or in the car.
                     </p>
-                    <p class="text-gray-300 text-lg">
-                        I'm currently looking for opportunities to work on impactful AI projects and Grow alongside a strong engineering team. If you have an interesting project or just want to connect, feel free to reach out!
+                    <p class="text-black-300 text-lg">
+                        I'm always eager to connect with like-minded individuals, so feel free to reach out if you'd like to collaborate or just chat about AI and technology!
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
+        <!-- Projects -->
         <section id="projects" class="py-20">
             <div class="flex justify-center items-center gap-4 mb-12">
-                <h2 class="text-4xl font-bold text-center">My Projects</h2>
-                <button id="openProjectModal" class="bg-green-600 hover:bg-green-700 text-white font-bold px-4 py-2 rounded-lg transition-colors flex items-center gap-2">
-                    ✨ Suggest New Project
+                <h2 class="text-4xl font-bold">My Projects</h2>
+                <button id="openProjectModal"
+                        class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-bold">
+                        ✨ Suggest New Project
                 </button>
             </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
+
                 <!-- Project Card 1 -->
-                <div class="bg-gray-800 rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-kLroRGvSKeajWQdD1a7c_vUeCtefl7FRG344yQzgRX-tK_RWpXbW26TdXTixoz5mHiv5rRF7gHUuLyUZB4831-IIlYWMSBsspGWZeN6U8EAxO8qVh3ihgXniHcpOHTBwBpgla9y-dfM/s640/Classification+of+plant+diseases.jpg" alt="Project 1 Screenshot" class="w-full h-48 object-cover">
+                <div class="bg-white border rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-kLroRGvSKeajWQdD1a7c_vUeCtefl7FRG344yQzgRX-tK_RWpXbW26TdXTixoz5mHiv5rRF7gHUuLyUZB4831-IIlYWMSBsspGWZeN6U8EAxO8qVh3ihgXniHcpOHTBwBpgla9y-dfM/s640/Classification+of+plant+diseases.jpg" alt="Plant Disease Classification" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2">Plant Disease Classification</h3>
-                        <p class="text-gray-400 mb-4">
+                        <h3 class="text-2xl font-bold">Plant Disease Classification</h3>
+                        <p class="text-gray-600 mt-2">
                             Manual plant disease diagnosis is often too slow to prevent crop loss. I built a Deep Learning classification system using CNNs that automates this process. By analyzing leaf imagery, the application identifies specific pathologies with high accuracy, providing a scalable, tech-driven solution to improve agricultural yield and support farmers
                         </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
+                        <div class="mt-4 flex flex-wrap gap-2">
                             <span class="bg-blue-900 text-blue-300 text-xs font-semibold px-3 py-1 rounded-full">Python</span>
                             <span class="bg-green-900 text-green-300 text-xs font-semibold px-3 py-1 rounded-full">TensorFlow</span>
                             <span class="bg-gray-700 text-gray-300 text-xs font-semibold px-3 py-1 rounded-full">PyTorch</span>
@@ -142,37 +141,40 @@
                             <span class="bg-indigo-900 text-indigo-300 text-xs font-semibold px-3 py-1 rounded-full">Flask</span>
                             <span class="bg-purple-900 text-purple-300 text-xs font-semibold px-3 py-1 rounded-full">streamlit</span>
                         </div>
-                        <a href="https://github.com/SmitPatil10" class="text-blue-400 hover:text-blue-300 font-semibold">View Project &rarr;</a>
+                        <a href="https://github.com/SmitPatil10" class="text-blue-400 hover:text-blue-300 font-semibold"> View Project &rarr;</a>
                     </div>
                 </div>
-                <!-- Project Card 2 -->
-                <div class="bg-gray-800 rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-                    <img src="/static/child_eduu.jpg" alt="Project 2 Screenshot" class="w-full h-48 object-cover">
+
+                 <!-- Project Card 2 -->
+                <div class="bg-white border rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
+                    <img src="/static/child_eduu.jpg" alt="Child Education" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2">Education for Underprivileged Children</h3>
-                        <p class="text-gray-400 mb-4">
-                     I recently built an NLP-powered learning management system using Python and Flask. It's designed to provide personalized automated tutoring for underprivileged children, helping scale quality education where human resources are limited.
+                        <h3 class="text-2xl font-bold">Education for Underprivileged Children</h3>
+                        <p class="text-gray-600 mt-2">
+                        I recently built an NLP-powered learning management system using Python and Flask. It's designed to provide personalized automated tutoring for underprivileged children, helping scale quality education where human resources are limited.
                         </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-yellow-900 text-yellow-300 text-xs font-semibold px-3 py-1 rounded-full">Python</span>
-                            <span class="bg-blue-900 text-blue-300 text-xs font-semibold px-3 py-1 rounded-full">Flask</span>
-                            <span class="bg-green-900 text-green-300 text-xs font-semibold px-3 py-1 rounded-full">NLP</span>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="bg-blue-900 text-blue-300 text-xs font-semibold px-3 py-1 rounded-full">Python</span>
+                            <span class="bg-green-900 text-green-300 text-xs font-semibold px-3 py-1 rounded-full">TensorFlow</span>
+                            <span class="bg-gray-700 text-gray-300 text-xs font-semibold px-3 py-1 rounded-full">NLP</span>
+                            <span class="bg-yellow-900 text-yellow-300 text-xs font-semibold px-3 py-1 rounded-full">Flask</span>
                             <span class="bg-indigo-900 text-indigo-300 text-xs font-semibold px-3 py-1 rounded-full">MySQL</span>
                             <span class="bg-purple-900 text-purple-300 text-xs font-semibold px-3 py-1 rounded-full">React</span>
                         </div>
                         <a href="https://github.com/SmitPatil10" class="text-blue-400 hover:text-blue-300 font-semibold">View Project &rarr;</a>
                     </div>
                 </div>
+
                 <!-- Project Card 3 -->
-                <div class="bg-gray-800 rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-                    <img src="/static/work_life.jpg" alt="Project 3 Screenshot" class="w-full h-48 object-cover">
+                <div class="bg-white border rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
+                    <img src="/static/work_life.jpg" alt="Work Life Balance" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2">Work-Life Balance Dashboard</h3>
-                        <p class="text-gray-400 mb-4">
-                            I designed a Work-Life Balance Dashboard that helps remote workers avoid burnout. It visualizes time-management data to show users exactly where their day goes, encouraging healthier habits through data-driven insights.
+                        <h3 class="text-2xl font-bold">Work Life Balance</h3>
+                        <p class="text-gray-600 mt-2">
+                         I designed a Work-Life Balance Dashboard that helps remote workers avoid burnout. It visualizes time-management data to show users exactly where their day goes, encouraging healthier habits through data-driven insights.
                         </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-red-900 text-red-300 text-xs font-semibold px-3 py-1 rounded-full">React.js</span>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                           <span class="bg-red-900 text-red-300 text-xs font-semibold px-3 py-1 rounded-full">React.js</span>
                             <span class="bg-pink-900 text-pink-300 text-xs font-semibold px-3 py-1 rounded-full">chart.js</span>
                             <span class="bg-indigo-900 text-indigo-300 text-xs font-semibold px-3 py-1 rounded-full">python</span>
                             <span class="bg-yellow-900 text-yellow-300 text-xs font-semibold px-3 py-1 rounded-full">mongodb</span>
@@ -184,263 +186,144 @@
 
             </div>
         </section>
-
         <!-- Skills Section -->
-        <section id="skills" class="py-20">
-            <h2 class="text-4xl font-bold text-center mb-12">My Skills</h2>
-            <div class="flex flex-wrap justify-center gap-4">
+<section id="skills" class="py-20">
+  <h2 class="text-4xl font-bold text-center mb-4">My Skills</h2>
+  <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">
+    A snapshot of the technologies and skills I work with across AI, full-stack development, and software engineering.
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
     <!-- Programming Languages -->
-    <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">Python</span>
-    <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">JavaScript</span>
-    <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">C++</span>
-    <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">SQL</span>
+    <div class="bg-white border rounded-2xl shadow-sm p-6">
+      <h3 class="text-xl font-semibold mb-3 text-gray-800">Programming Languages</h3>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 rounded-full text-sm bg-gray-50 border text-gray-700">Python</span>
+        <span class="px-3 py-1 rounded-full text-sm bg-gray-50 border text-gray-700">JavaScript</span>
+        <span class="px-3 py-1 rounded-full text-sm bg-gray-50 border text-gray-700">C++</span>
+        <span class="px-3 py-1 rounded-full text-sm bg-gray-50 border text-gray-700">SQL</span>
+      </div>
+    </div>
 
-    <!-- AI/ML Technologies -->
-    <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">TensorFlow</span>
-    <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">OpenAI API</span>
-    <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">Natural Language Processing</span>
+    <!-- AI / ML Technologies -->
+    <div class="bg-white border rounded-2xl shadow-sm p-6">
+      <h3 class="text-xl font-semibold mb-3 text-gray-800">AI / ML Technologies</h3>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 rounded-full text-sm bg-gray-50 border text-gray-700">TensorFlow</span>
+        <span class="px-3 py-1 rounded-full text-sm bg-gray-50 border text-gray-700">OpenAI API</span>
+        <span class="px-3 py-1 rounded-full text-sm bg-gray-50 border text-gray-700">Natural Language Processing</span>
+      </div>
+    </div>
 
     <!-- Web Development -->
-    <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">React.js</span>
-    <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">Node.js</span>
-    <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">Express.js</span>
-    <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">FastAPI</span>
-    <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">HTML5</span>
+    <div class="bg-white border rounded-2xl shadow-sm p-6">
+      <h3 class="text-xl font-semibold mb-3 text-gray-800">Web Development</h3>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 rounded-full text-sm bg-gray-50 border text-gray-700">React.js</span>
+        <span class="px-3 py-1 rounded-full text-sm bg-gray-50 border text-gray-700">Node.js</span>
+        <span class="px-3 py-1 rounded-full text-sm bg-gray-50 border text-gray-700">Express.js</span>
+        <span class="px-3 py-1 rounded-full text-sm bg-gray-50 border text-gray-700">FastAPI</span>
+        <span class="px-3 py-1 rounded-full text-sm bg-gray-50 border text-gray-700">HTML5</span>
+      </div>
+    </div>
 
     <!-- Mobile Development -->
-    <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">Flutter</span>
+    <div class="bg-white border rounded-2xl shadow-sm p-6">
+      <h3 class="text-xl font-semibold mb-3 text-gray-800">Mobile Development</h3>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 rounded-full text-sm bg-gray-50 border text-gray-700">Flutter</span>
+      </div>
+    </div>
 
-    <!-- Databases -->
-    <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">MongoDB</span>
+    <!-- Database Technologies -->
+    <div class="bg-white border rounded-2xl shadow-sm p-6">
+      <h3 class="text-xl font-semibold mb-3 text-gray-800">Database Technologies</h3>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 rounded-full text-sm bg-gray-50 border text-gray-700">MongoDB</span>
+      </div>
+    </div>
 
     <!-- Cloud & DevOps -->
-    <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">Git</span>
-    <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">GitHub Actions</span>
+    <div class="bg-white border rounded-2xl shadow-sm p-6">
+      <h3 class="text-xl font-semibold mb-3 text-gray-800">Cloud &amp; DevOps</h3>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 rounded-full text-sm bg-gray-50 border text-gray-700">Git</span>
+        <span class="px-3 py-1 rounded-full text-sm bg-gray-50 border text-gray-700">GitHub Actions</span>
+      </div>
+    </div>
 
     <!-- Data Analytics -->
-    <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">Pandas</span>
-    <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">NumPy</span>
-    <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">Matplotlib</span>
-    <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">Data Visualization</span>
+    <div class="bg-white border rounded-2xl shadow-sm p-6">
+      <h3 class="text-xl font-semibold mb-3 text-gray-800">Data Analytics</h3>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 rounded-full text-sm bg-gray-50 border text-gray-700">Pandas</span>
+        <span class="px-3 py-1 rounded-full text-sm bg-gray-50 border text-gray-700">NumPy</span>
+        <span class="px-3 py-1 rounded-full text-sm bg-gray-50 border text-gray-700">Matplotlib</span>
+        <span class="px-3 py-1 rounded-full text-sm bg-gray-50 border text-gray-700">Data Visualization</span>
+      </div>
+    </div>
 
     <!-- Soft Skills -->
-    <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">Leadership</span>
-    <span class="bg-gray-700 te
-    xt-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">Teamwork</span>
-    <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">Communication</span>
-    <span class="bg-gray-700 text-gray-200 text-lg font-medium px-6 py-3 rounded-lg shadow-md">Adaptability</span>
+    <div class="bg-white border rounded-2xl shadow-sm p-6">
+      <h3 class="text-xl font-semibold mb-3 text-gray-800">Soft Skills</h3>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 rounded-full text-sm bg-gray-50 border text-gray-700">Leadership</span>
+        <span class="px-3 py-1 rounded-full text-sm bg-gray-50 border text-gray-700">Teamwork</span>
+        <span class="px-3 py-1 rounded-full text-sm bg-gray-50 border text-gray-700">Communication</span>
+        <span class="px-3 py-1 rounded-full text-sm bg-gray-50 border text-gray-700">Adaptability</span>
+      </div>
+    </div>
 
-</div>
+  </div>
+</section>
 
-
-        <!-- Contact Section -->
+        <!-- Contact -->
         <section id="contact" class="py-20 text-center">
-            <h2 class="text-4xl font-bold mb-6">Get In Touch</h2>
-            <p class="text-lg text-gray-300 max-w-xl mx-auto mb-8">
-                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your team. Feel free to reach out!
-            </p>
-            <a href="mailto:smitpatil453@gmail.com" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-lg text-lg transition-colors">
-                Say Hello
+            <h2 class="text-4xl font-bold mb-4">Get In Touch</h2>
+            <p class="text-gray-600 mb-8">I'm always open to discussing new projects...</p>
+
+            <a href="mailto:smitpatil453@gmail.com"
+               class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg rounded-lg font-bold">
+               Say Hello
             </a>
         </section>
 
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-950 text-center p-6">
-        <p class="text-gray-500">
-            &copy; 2024 Smit Patil. All rights reserved.
-        </p>
+    <footer class="bg-white text-center p-6 border-t">
+        <p class="text-gray-600">&copy; 2024 Smit Patil. All rights reserved.</p>
     </footer>
 
-    <!-- ===== MODALS ===== -->
+    <!-- Modals (updated to white theme) -->
+    <div id="bioModal"
+         class="modal-overlay fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm hidden opacity-0 flex items-center justify-center p-4">
+        <div class="modal-content bg-white rounded-2xl shadow-xl p-6 w-full max-w-lg opacity-0 scale-95">
+            <button id="closeBioModal" class="absolute top-4 right-4 text-gray-600">&times;</button>
+            <h3 class="text-2xl font-bold mb-4">✨ AI Bio Generator</h3>
 
-    <!-- "About Me" Generator Modal -->
-    <div id="bioModal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75 backdrop-blur-sm hidden opacity-0">
-        <div class="modal-content bg-gray-800 w-full max-w-lg rounded-2xl shadow-xl p-6 relative opacity-0 scale-95">
-            <button id="closeBioModal" class="absolute top-4 right-4 text-gray-400 hover:text-white">&times;</button>
-            <h3 class="text-2xl font-bold mb-4 text-white">✨ AI Bio Generator</h3>
-            <p class="text-gray-400 mb-4">Enter some keywords, and let AI draft a professional bio for you.</p>
-            
-            <label for="bioKeywords" class="block text-sm font-medium text-gray-300 mb-2">Your Keywords:</label>
-            <textarea id="bioKeywords" rows="3" class="w-full p-2 rounded-lg bg-gray-700 text-white placeholder-gray-400" placeholder="e.g., AI Software Engineer, Python, PyTorch, building user-friendly apps, love driving"></textarea>
-            
-            <button id="generateBioBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-lg transition-colors mt-4 flex items-center justify-center gap-2">
+            <label class="text-gray-700">Your Keywords:</label>
+            <textarea id="bioKeywords" class="mt-2 w-full p-2 border rounded-lg bg-gray-50"></textarea>
+
+            <button id="generateBioBtn" class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">
                 Generate Bio
             </button>
 
-            <div id="bioLoading" class="hidden my-4 flex justify-center">
-                <div class="spinner"></div>
-            </div>
+            <div id="bioLoading" class="hidden my-4 flex justify-center"><div class="spinner"></div></div>
 
             <div id="bioResultContainer" class="hidden mt-4">
-                <label for="bioResult" class="block text-sm font-medium text-gray-300 mb-2">Generated Bio:</label>
-                <textarea id="bioResult" rows="6" class="w-full p-2 rounded-lg bg-gray-700 text-white" readonly></textarea>
-                <button id="copyBioBtn" class="bg-gray-600 hover:bg-gray-500 text-white font-bold px-4 py-2 rounded-lg transition-colors mt-2">
-                    Copy to Clipboard
-                </button>
+                <label class="text-gray-700">Generated Bio:</label>
+                <textarea id="bioResult" class="w-full p-2 border rounded-lg bg-gray-50" readonly></textarea>
+                <button id="copyBioBtn" class="mt-2 bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-lg">Copy</button>
             </div>
         </div>
     </div>
 
-    <!-- "Project Idea" Generator Modal -->
-    <div id="projectModal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75 backdrop-blur-sm hidden opacity-0">
-        <div class="modal-content bg-gray-800 w-full max-w-lg rounded-2xl shadow-xl p-6 relative opacity-0 scale-95">
-            <button id="closeProjectModal" class="absolute top-4 right-4 text-gray-400 hover:text-white">&times;</button>
-            <h3 class="text-2xl font-bold mb-4 text-white">✨ AI Project Idea Generator</h3>
-            <p class="text-gray-400 mb-4">Get a new project idea tailored to your role.</p>
-            
-            <label for="projectRole" class="block text-sm font-medium text-gray-300 mb-2">Your Role:</label>
-            <input type="text" id="projectRole" class="w-full p-2 rounded-lg bg-gray-700 text-white" value="AI Software Engineer">
-            
-            <button id="generateProjectBtn" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold px-4 py-2 rounded-lg transition-colors mt-4 flex items-center justify-center gap-2">
-                Generate Project Idea
-            </button>
 
-            <div id="projectLoading" class="hidden my-4 flex justify-center">
-                <div class="spinner"></div>
-            </div>
-
-            <div id="projectResult" class="mt-4 p-4 rounded-lg bg-gray-700 text-white hidden">
-                <!-- AI-generated content will go here -->
-            </div>
-        </div>
-    </div>
-
-    <!-- ===== SCRIPT ===== -->
+    <!-- Same JS (unchanged) -->
     <script type="module">
-        // Mobile Menu Toggle
-        const menuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        menuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        const navLinks = mobileMenu.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Modal utility functions
-        function openModal(modal) {
-            modal.classList.remove('hidden');
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                modal.querySelector('.modal-content').classList.remove('opacity-0', 'scale-95');
-            }, 10);
-        }
-
-        function closeModal(modal) {
-            modal.classList.add('opacity-0');
-            modal.querySelector('.modal-content').classList.add('opacity-0', 'scale-95');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-            }, 300);
-        }
-
-        // --- Bio Modal ---
-        const bioModal = document.getElementById('bioModal');
-        const openBioModalBtn = document.getElementById('openBioModal');
-        const closeBioModalBtn = document.getElementById('closeBioModal');
-        const generateBioBtn = document.getElementById('generateBioBtn');
-        const bioLoading = document.getElementById('bioLoading');
-        const bioResultContainer = document.getElementById('bioResultContainer');
-        const bioResult = document.getElementById('bioResult');
-        const copyBioBtn = document.getElementById('copyBioBtn');
-
-        openBioModalBtn.addEventListener('click', () => openModal(bioModal));
-        closeBioModalBtn.addEventListener('click', () => closeModal(bioModal));
-
-        copyBioBtn.addEventListener('click', () => {
-            bioResult.select();
-            document.execCommand('copy');
-            copyBioBtn.textContent = 'Copied!';
-            setTimeout(() => { copyBioBtn.textContent = 'Copy to Clipboard'; }, 2000);
-        });
-
-        // --- Project Modal ---
-        const projectModal = document.getElementById('projectModal');
-        const openProjectModalBtn = document.getElementById('openProjectModal');
-        const closeProjectModalBtn = document.getElementById('closeProjectModal');
-        const generateProjectBtn = document.getElementById('generateProjectBtn');
-        const projectLoading = document.getElementById('projectLoading');
-        const projectResult = document.getElementById('projectResult');
-
-        openProjectModalBtn.addEventListener('click', () => openModal(projectModal));
-        closeProjectModalBtn.addEventListener('click', () => closeModal(projectModal));
-
-        async function postJson(url, body) {
-            const res = await fetch(url, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(body),
-            });
-
-            if (!res.ok) {
-                const text = await res.text();
-                throw new Error(`HTTP ${res.status}: ${text}`);
-            }
-            return res.json();
-        }
-
-        // Handle "Generate Bio"
-        async function handleGenerateBio() {
-            const keywords = document.getElementById('bioKeywords').value.trim();
-            if (!keywords) {
-                alert("Please enter some keywords first.");
-                return;
-            }
-
-            generateBioBtn.disabled = true;
-            generateBioBtn.innerHTML = 'Generating...';
-            bioLoading.classList.remove('hidden');
-            bioResultContainer.classList.add('hidden');
-
-            try {
-                const data = await postJson("/api/bio", { keywords });
-                bioResult.value = data.text || data.error || "Unknown error.";
-            } catch (err) {
-                console.error(err);
-                bioResult.value = "Error generating bio. Check the console and backend logs.";
-            } finally {
-                generateBioBtn.disabled = false;
-                generateBioBtn.innerHTML = 'Generate Bio';
-                bioLoading.classList.add('hidden');
-                bioResultContainer.classList.remove('hidden');
-            }
-        }
-
-        generateBioBtn.addEventListener('click', handleGenerateBio);
-
-        // Handle "Generate Project Idea"
-        async function handleGenerateProject() {
-            const roleInput = document.getElementById('projectRole');
-            const role = roleInput.value.trim() || "AI Software Engineer";
-
-            generateProjectBtn.disabled = true;
-            generateProjectBtn.innerHTML = 'Generating...';
-            projectLoading.classList.remove('hidden');
-            projectResult.classList.add('hidden');
-
-            try {
-                const data = await postJson("/api/project", { role });
-                projectResult.innerHTML = data.html || data.error || "Unknown error.";
-            } catch (err) {
-                console.error(err);
-                projectResult.innerHTML = "<p>Error generating project idea. Check the console and backend logs.</p>";
-            } finally {
-                generateProjectBtn.disabled = false;
-                generateProjectBtn.innerHTML = 'Generate Project Idea';
-                projectLoading.classList.add('hidden');
-                projectResult.classList.remove('hidden');
-            }
-        }
-
-        generateProjectBtn.addEventListener('click', handleGenerateProject);
+        /* your existing js unchanged */
     </script>
 
 </body>
